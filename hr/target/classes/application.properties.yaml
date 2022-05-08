@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: smart
+hr:
+  salary:
+    smart:
+      default: 5
+      sen: 10
+      med: 5
+      jun: 0
