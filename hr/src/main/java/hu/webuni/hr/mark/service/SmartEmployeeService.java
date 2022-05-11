@@ -1,10 +1,9 @@
 package hu.webuni.hr.mark.service;
 
-import java.sql.Date;
 import java.time.LocalDate;
-import java.time.Year;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -36,13 +35,12 @@ public class SmartEmployeeService implements EmployeeService{
 	
 	@Override
 	public double getPayRaisePercent(Employee employee) {
-		LocalDate current_date = LocalDate.now();
-		int currentYear = current_date.getYear();
-		if(employee.getStartDate().getYear() <= currentYear-sendate) {
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		if(employee.getStartDate().until(currentDateTime, ChronoUnit.MONTHS) >= sendate) {
 			return senior;
-		} else if( employee.getStartDate().getYear() > currentYear-meddate) {
+		} else if( employee.getStartDate().until(currentDateTime, ChronoUnit.MONTHS) >= meddate) {
 			return	medior;
-		} else if( employee.getStartDate().getYear() > currentYear-jundate) {
+		} else if( employee.getStartDate().until(currentDateTime, ChronoUnit.MONTHS) >= jundate) {
 			return junior;
 		}
 		return def;
