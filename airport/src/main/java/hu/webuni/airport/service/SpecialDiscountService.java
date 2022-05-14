@@ -8,7 +8,7 @@ import hu.webuni.airport.config.AirportConfigProperties;
 @Service
 public class SpecialDiscountService implements DiscountService{
 	
-	//@Value("${airport.discount.apecial.limit}")
+	//@Value("${airport.discount.special.limit}")
 	//private int limit;
 
 	//@Value("${airport.discount.special.percent}")
