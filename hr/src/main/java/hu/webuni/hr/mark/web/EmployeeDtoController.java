@@ -20,7 +20,7 @@ import hu.webuni.hr.mark.dto.EmployeeDto;
 
 
 @RestController
-//@RequestMapping("/api/employees")
+@RequestMapping("/api/employees")
 public class EmployeeDtoController {
 
 	private Map<Long,EmployeeDto> employees = new HashMap<>();
