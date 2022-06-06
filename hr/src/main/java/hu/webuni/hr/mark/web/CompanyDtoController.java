@@ -1,13 +1,6 @@
 package hu.webuni.hr.mark.web;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import hu.webuni.hr.mark.dto.CompanyDto;
-import hu.webuni.hr.mark.dto.EmployeeDto;
 import hu.webuni.hr.mark.mapper.CompanyMapper;
 import hu.webuni.hr.mark.service.CompanyService;
 

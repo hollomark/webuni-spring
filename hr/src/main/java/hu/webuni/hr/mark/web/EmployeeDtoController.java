@@ -73,7 +73,7 @@ public class EmployeeDtoController {
 	 }
 	 
 	 @PutMapping("/{id}")
-	 public ResponseEntity<EmployeeDto> modifyEmployee(@PathVariable long id, @RequestBody @Valid EmployeeDto employeeDto) {
+	 public EmployeeDto modifyEmployee(@PathVariable long id, @RequestBody @Valid EmployeeDto employeeDto) {
 		 
 		 employeeDto.setId(id);
 		 EmployeeDto dto = employeeMapper.employeeToDto(employeeService.saveEmployee(employeeMapper.dtoToEmployee(employeeDto)));
@@ -83,7 +83,7 @@ public class EmployeeDtoController {
 			 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		 }
 		 		 
-		 return ResponseEntity.ok(dto);
+		 return dto;
 	}
 	 
 	 
