@@ -8,12 +8,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import hu.webuni.hr.mark.dto.CompanyDto;
 import hu.webuni.hr.mark.model.Company;
 import hu.webuni.hr.mark.model.Employee;
 
+@Service
 public class CompanyService {
 
 	private Map<Long, Company> companies = new HashMap<>();
@@ -46,7 +48,6 @@ public class CompanyService {
 	}
 	
 	
-	@SuppressWarnings("unlikely-arg-type")
 	public Company createCompany(Company company) {
 		
 		

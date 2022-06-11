@@ -78,7 +78,7 @@ public class EmployeeDtoController {
 		 employeeDto.setId(id);
 		 EmployeeDto dto = employeeMapper.employeeToDto(employeeService.saveEmployee(employeeMapper.dtoToEmployee(employeeDto)));
 		 
-		 if(!dto.equals(null)) {
+		 if(dto.equals(null)) {
 			 
 			 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		 }

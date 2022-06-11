@@ -51,17 +51,18 @@ public class EmployeeControllerIT {
 	
 	@Test
 	void updateEmployee() throws Exception {
-		EmployeeDto employeeDto = new EmployeeDto(1,"Józsi", "CTO", 12111, LocalDateTime.parse("2021-01-03T08:00:00"));
+		EmployeeDto employeeDto = new EmployeeDto(2,"Józsi", "CTO", 12111, LocalDateTime.parse("2021-01-03T08:00:00"));
+		
 		
 		List<EmployeeDto> befDTOs = getAllEmployees();
 		
-		EmployeeDto respEmpDto = updateEmployee(employeeDto);
+		EmployeeDto respEmpDto = updateEmployeeFunc(employeeDto);
 		
 		List<EmployeeDto> aftDTOs = getAllEmployees();
 		
 		
 		assertThat(!befDTOs.contains(respEmpDto));
-		
+		assertThat(!befDTOs.contains(employeeDto));
 		assertThat(aftDTOs.contains(respEmpDto));
 		
 	}
@@ -105,7 +106,7 @@ public class EmployeeControllerIT {
 		.isBadRequest();
 	}
 	
-	private EmployeeDto updateEmployee(EmployeeDto employeDto) {
+	private EmployeeDto updateEmployeeFunc(EmployeeDto employeDto) {
 		
 		return client
 					.put()
@@ -127,7 +128,7 @@ public class EmployeeControllerIT {
 					.bodyValue(employeDto)
 					.exchange()
 					.expectStatus()
-					.isOk()
+					.isBadRequest()
 					.expectBody(EmployeeDto.class)
 					.returnResult()
 					.getResponseBody();
