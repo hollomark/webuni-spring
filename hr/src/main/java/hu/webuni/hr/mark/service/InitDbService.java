@@ -47,9 +47,9 @@ public class InitDbService {
 	@Transactional
 	public void insertTestData() { 
 		
-		Position dev1 = positionRepository.save(new Position(Qualifications.COLLEGE, "Front End Developer"));
+		Position dev1 = positionRepository.save(new Position(Qualifications.COLLEGE, "Front End Developer",4000));
 		
-		Position manager = positionRepository.save(new Position(Qualifications.COLLEGE, "Manager"));
+		Position manager = positionRepository.save(new Position(Qualifications.COLLEGE, "Manager",4000));
 		
 		Employee employee = new Employee("Mekk Elek", 45587,LocalDateTime.parse("2000-01-13T17:09:42.411"),null);
 		Employee employee2 = new Employee("Takk Elek",25587,LocalDateTime.parse("2010-01-13T17:09:42.411"),null);

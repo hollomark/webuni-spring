@@ -7,15 +7,20 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Positive;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import hu.webuni.hr.mark.model.Position;
+
 public class EmployeeDto{
 	
-	public EmployeeDto(long id, String name, String position, int salary, LocalDateTime startDate) {
+	public EmployeeDto(long id, String name, Position position, int salary, LocalDateTime startDate, CompanyDto companyDto) {
 		this.id = id;
 		this.name = name;
 		this.position = position;
 		this.salary = salary;
 		this.startDate = startDate;
+		this.companyDto = companyDto;
 	}
+	
+	private CompanyDto companyDto;
 	
 	public EmployeeDto() {}
 	
@@ -25,7 +30,7 @@ public class EmployeeDto{
 	
 	
 	@NotBlank(message = "Name is mandatory")
-	private String position;
+	private Position position;
 	
 	@Positive
 	private double salary; 
@@ -46,12 +51,15 @@ public class EmployeeDto{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPosition() {
+	
+	public Position getPosition() {
 		return position;
 	}
-	public void setPosition(String position) {
+
+	public void setPosition(Position position) {
 		this.position = position;
 	}
+
 	public double getSalary() {
 		return salary;
 	}

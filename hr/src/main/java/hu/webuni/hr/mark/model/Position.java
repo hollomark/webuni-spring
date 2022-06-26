@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -38,9 +39,10 @@ public class Position {
 	private double minSalary;
 	public Position() {}
 
-	public Position(Qualifications qualifications, String name) {
+	public Position(Qualifications qualifications, String name, double minSalary) {
 		this.qualifications = qualifications;
 		this.name = name;
+		this.minSalary = minSalary;
 	}
 	public long getId() {
 		return id;
