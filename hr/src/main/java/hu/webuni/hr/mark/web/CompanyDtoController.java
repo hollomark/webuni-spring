@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import antlr.collections.List;
 import hu.webuni.hr.mark.dto.CompanyDto;
 import hu.webuni.hr.mark.dto.EmployeeDto;
 import hu.webuni.hr.mark.mapper.CompanyMapper;
 import hu.webuni.hr.mark.mapper.EmployeeMapper;
+import hu.webuni.hr.mark.model.AverageSalaryByPosition;
 import hu.webuni.hr.mark.service.CompanyService;
 
 @RestController
@@ -99,9 +101,9 @@ public class CompanyDtoController {
 	 }
 	 
 	 @GetMapping("findbysalary/{id}")
-	 public CompanyDto getCompEmployeeAVGSalary(@PathVariable long id){
+	 public java.util.List<AverageSalaryByPosition> getCompEmployeeAVGSalary(@PathVariable long id){
 		 
-		CompanyDto company = companyMapper.CompanyToCompanyDto(companyService.getCompAVGSalary(id));
+		 java.util.List<AverageSalaryByPosition> company = companyService.getCompAVGSalary(id);
 		return company;
 	 }
 	 

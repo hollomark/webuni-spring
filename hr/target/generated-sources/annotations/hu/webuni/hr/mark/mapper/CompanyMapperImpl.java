@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-26T12:31:19+0200",
+    date = "2022-06-30T16:57:40+0200",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 17.0.2 (Eclipse Adoptium)"
 )
 @Component
@@ -64,6 +64,20 @@ public class CompanyMapperImpl implements CompanyMapper {
         }
 
         return collection1;
+    }
+
+    @Override
+    public List<CompanyDto> companiesToCompanyDtoList(List<Company> collection) {
+        if ( collection == null ) {
+            return null;
+        }
+
+        List<CompanyDto> list = new ArrayList<CompanyDto>( collection.size() );
+        for ( Company company : collection ) {
+            list.add( CompanyToCompanyDto( company ) );
+        }
+
+        return list;
     }
 
     protected Employee employeeDtoToEmployee(EmployeeDto employeeDto) {

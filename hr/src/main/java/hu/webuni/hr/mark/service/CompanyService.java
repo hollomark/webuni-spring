@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import hu.webuni.hr.mark.dto.CompanyDto;
 import hu.webuni.hr.mark.mapper.CompanyMapper;
+import hu.webuni.hr.mark.model.AverageSalaryByPosition;
 import hu.webuni.hr.mark.model.Company;
 import hu.webuni.hr.mark.model.Employee;
 import hu.webuni.hr.mark.repository.CompanyRepository;
@@ -90,9 +91,9 @@ public class CompanyService {
 	}
 	
 	
-	public Company getCompAVGSalary(long id) {
+	public java.util.List<AverageSalaryByPosition> getCompAVGSalary(long id) {
 		
-		Company company = companyRepository.getAVGSalaryByPosOrderBy(id);
+		java.util.List<AverageSalaryByPosition> company = companyRepository.getAVGSalaryByPosOrderBy(id);
 		return company;
 	}
 }

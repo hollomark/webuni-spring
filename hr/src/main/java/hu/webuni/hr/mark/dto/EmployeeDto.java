@@ -22,6 +22,12 @@ public class EmployeeDto{
 	
 	private CompanyDto companyDto;
 	
+	public void setCompanyDto(CompanyDto companyDto) {
+		this.companyDto = companyDto;
+	}
+	public CompanyDto getCompanyDto() {
+		return companyDto;
+	}
 	public EmployeeDto() {}
 	
 	private long id;

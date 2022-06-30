@@ -1,6 +1,7 @@
 package hu.webuni.hr.mark.mapper;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.mapstruct.Mapper;
 
@@ -16,5 +17,7 @@ public interface CompanyMapper {
 	CompanyDto CompanyToCompanyDto(Company company);
 	
 	Collection<CompanyDto> companiesToCompanyDtoCollection(Collection<Company> collection);
+	
+	List<CompanyDto> companiesToCompanyDtoList(List<Company> collection);
 	
 }

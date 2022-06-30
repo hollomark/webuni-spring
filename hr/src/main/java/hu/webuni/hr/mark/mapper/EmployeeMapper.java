@@ -12,7 +12,7 @@ import hu.webuni.hr.mark.model.Employee;
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
 
-	@Mapping(target="company.companyEmployees", ignore = true)
+	@Mapping(target="companyDto.companyEmployees", ignore = true)
 	EmployeeDto employeeToDto(Employee employee);
 	
 	Employee dtoToEmployee(EmployeeDto employee);
