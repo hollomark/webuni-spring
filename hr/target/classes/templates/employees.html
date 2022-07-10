@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Homework for list and add employees </h1>
+	<section class="container">
+		
+		<div class="form_container">
+			<form th:action="@{/employees}" method="post" th:object="${newEmployee}">	
+				<div class="container_elements">
+			 		<label for="id">Id:</label>
+					<input th:field="*{id}" name="id"/>
+				</div>
+				<div class="container_elements">
+					<label for="name">Name:</label>
+					<input th:field="*{name}" name="name" />
+				</div>
+				<div class="container_elements">
+					<label for="position">Position:</label>
+					<input th:field="*{position}" />
+				</div>
+				<div class="container_elements">
+					<label for="salary">salary:</label>
+					<input type="number" th:field="*{salary}" name="salary" />
+				</div>
+				<div class="container_elements">
+					<label for="startDate">startDate:</label>
+					<input type="datetime-local" th:field="*{startDate}" name="startDate"/>
+				</div>
+					<div class="container_submit">
+					<input type="submit" value="Add" />
+				</div>
+			</form>
+		</div>
+		<div class="table_container">
+			<table>
+				<tr>
+			    	<th>Id</th>
+			    	<th>Name</th>
+			    	<th>Position</th>
+			    	<th>Salary</th>
+			    	<th>Start Date</th>
+			  </tr>
+			  <tr th:each="employee : ${employees}">
+			 		<td th:text=${employee.id}>id</td>
+			 		<td ><a th:text=${employee.name} th:href="@{employee(id=${employee.id})}"> name </a></td>
+			 		<td th:text=${employee.position}>position</td>
+			 		<td th:text=${employee.salary}>salary</td>
+			 		<td th:text=${employee.startDate}>startdate</td>
+			 		<td ><a th:text=delete th:href="@{/delete(id=${employee.id})}"> delete </a></td>
+		  	   </tr>
+			</table>
+		</div>
+	</section>
+	
+		
+
+</body>
+<style>
+	.form_container{
+		width:50%;
+	}
+	
+	.table_container{
+		width:50%;
+	}
+	
+	form{
+	width: 100%;
+	
+	}
+	
+	.container{
+	display:flex;
+	flex-wrap:wrap;
+	width:100%;
+	
+	}
+	.container_elements{
+	width:80%;
+	}
+	.container input{
+	width:100%;
+	margin: 5px 0;
+	height: 25px;
+	}
+	.container_submit {
+	display: flex;
+	justify-content:flex-start;
+	width:100px;
+	}
+	.container_submit input{
+	width:100%;
+	}
+	
+</style>
+</html>
